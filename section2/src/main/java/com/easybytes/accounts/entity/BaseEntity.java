@@ -5,13 +5,14 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @MappedSuperclass //setting this class as superclass when extended by other classes
 @Getter @Setter  @ToString
 public class BaseEntity {
-
+    @CreationTimestamp
     @Column(updatable = false) // for letting the compiler know that during update, this data must not be altered
     private LocalDateTime createdAt;
 
